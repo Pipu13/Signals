@@ -25,12 +25,13 @@ audioInput.addEventListener("change", async (event) => {
   const sampleRate = audioBuffer.sampleRate;
 
   if (sampleRate !== 47100) {
-    info.textContent = `❌ Sample rate is ${sampleRate} Hz (Required: 47,100 Hz)`;
-    playPauseBtn.disabled = true;
-    wavesurfer.empty();
-    return;
-  }
+  info.textContent = `⚠️ Sample rate: ${sampleRate} Hz (Expected: 47,100 Hz)`;
+} else {
+  info.textContent = `✅ Sample rate: ${sampleRate} Hz`;
+}
 
+wavesurfer.loadBlob(file);
+playPauseBtn.disabled = false;
   info.textContent = `✅ Sample rate: ${sampleRate} Hz`;
   wavesurfer.loadBlob(file);
   playPauseBtn.disabled = false;

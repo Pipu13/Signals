@@ -28,10 +28,11 @@ input[type="file"] {
   margin-bottom: 16px;
 }
 
+
 #waveform {
   margin-top: 20px;
-  background: #020617;
-  border-radius: 8px;
+  min-height: 140px;
+  border: 1px dashed #334155;
 }
 
 .controls {
