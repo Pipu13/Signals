@@ -4,8 +4,10 @@ const info = document.getElementById("info");
 
 const EXPECTED_SAMPLE_RATE = 44100;
 
+// 👇 FORCE MediaElement backend (REQUIRED for MP4)
 const wavesurfer = WaveSurfer.create({
   container: "#waveform",
+  backend: "MediaElement",
   waveColor: "#64748b",
   progressColor: "#38bdf8",
   cursorColor: "#f8fafc",
@@ -20,10 +22,10 @@ audioInput.addEventListener("change", async () => {
   playPauseBtn.disabled = true;
   info.textContent = "Loading...";
 
-  // Load waveform FIRST (important for MP4)
+  // Load waveform FIRST (works for MP3 + MP4 now)
   wavesurfer.loadBlob(file);
 
-  // Get metadata safely (works for MP3 + MP4)
+  // Read metadata safely
   const media = document.createElement("audio");
   media.src = URL.createObjectURL(file);
   media.preload = "metadata";
@@ -31,7 +33,6 @@ audioInput.addEventListener("change", async () => {
   media.onloadedmetadata = async () => {
     const duration = media.duration;
 
-    // Decode ONLY to read sample rate
     const audioContext = new AudioContext();
     const buffer = await file.arrayBuffer();
     const audioBuffer = await audioContext.decodeAudioData(buffer);
@@ -41,7 +42,7 @@ audioInput.addEventListener("change", async () => {
 📄 ${file.name}
 ⏱️ ${duration.toFixed(1)} s
 🎵 ${sampleRate} Hz
-${sampleRate === EXPECTED_SAMPLE_RATE ? "✅ Valid sample rate" : "⚠️ Non-standard sample rate"}
+${sampleRate === EXPECTED_SAMPLE_RATE ? "✅ 44.1 kHz" : "⚠️ Non-44.1 kHz"}
 `;
 
     playPauseBtn.disabled = false;
@@ -49,7 +50,7 @@ ${sampleRate === EXPECTED_SAMPLE_RATE ? "✅ Valid sample rate" : "⚠️ Non-st
   };
 
   media.onerror = () => {
-    info.textContent = "❌ Cannot read audio metadata";
+    info.textContent = "❌ Unsupported media";
   };
 });
 
