@@ -5,8 +5,8 @@
   <title>Audio Waveform Viewer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- WaveSurfer CDN -->
-  <script src="https://unpkg.com/wavesurfer.js"></script>
+  <!-- WaveSurfer -->
+  <script src="https://unpkg.com/wavesurfer.js@7"></script>
 
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -14,12 +14,15 @@
 
   <div class="container">
     <h1>🎧 Audio Waveform Viewer</h1>
-    <p class="subtitle">Upload an audio file (47,100 Hz)</p>
+    <p class="subtitle">Upload MP3 or MP4 (44,100 Hz)</p>
 
-    <input type="file" id="audioInput" accept="audio/*" />
+    <input
+      type="file"
+      id="audioInput"
+      accept="audio/mpeg,video/mp4"
+    />
 
     <div id="info"></div>
-
     <div id="waveform"></div>
 
     <div class="controls">
