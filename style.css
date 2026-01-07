@@ -15,31 +15,20 @@ body {
   text-align: center;
 }
 
-h1 {
-  margin-bottom: 8px;
-}
-
 .subtitle {
   color: #94a3b8;
   margin-bottom: 24px;
 }
 
-input[type="file"] {
-  margin-bottom: 16px;
-}
-
-
 #waveform {
   margin-top: 20px;
   min-height: 140px;
   border: 1px dashed #334155;
-}
-
-.controls {
-  margin-top: 20px;
+  border-radius: 8px;
 }
 
 button {
+  margin-top: 20px;
   padding: 10px 24px;
   font-size: 16px;
   border: none;
@@ -56,7 +45,8 @@ button:disabled {
 }
 
 #info {
-  margin-top: 10px;
+  margin-top: 12px;
   font-size: 14px;
   color: #fbbf24;
+  white-space: pre-line;
 }
