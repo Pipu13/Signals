@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Audio Waveform Viewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- WaveSurfer CDN -->
+  <script src="https://unpkg.com/wavesurfer.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>🎧 Audio Waveform Viewer</h1>
+    <p class="subtitle">Upload an audio file (47,100 Hz)</p>
+
+    <input type="file" id="audioInput" accept="audio/*" />
+
+    <div id="info"></div>
+
+    <div id="waveform"></div>
+
+    <div class="controls">
+      <button id="playPause" disabled>Play</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

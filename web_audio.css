@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+.container {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 30px;
+  background: #020617;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #94a3b8;
+  margin-bottom: 24px;
+}
+
+input[type="file"] {
+  margin-bottom: 16px;
+}
+
+#waveform {
+  margin-top: 20px;
+  background: #020617;
+  border-radius: 8px;
+}
+
+.controls {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  background: #38bdf8;
+  color: #020617;
+  font-weight: 600;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#info {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #fbbf24;
+}
